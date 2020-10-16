@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <Pane fx:id="pane" prefHeight="500.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <HBox prefHeight="50.0" prefWidth="700.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buildButton" mnemonicParsing="false" onAction="#build" text="build">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></Button>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Cell size" />
+                  <Slider fx:id="gridSizeSlider" max="4.5" min="1.5" onDragDetected="#setNodeSize" />
+               </children>
+            </VBox>
+            <ChoiceBox fx:id="algorithmBox" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></ChoiceBox>
+            <Button mnemonicParsing="false" onAction="#clear" text="clear">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#random" text="random">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#changeGrid" text="grid ON/OFF">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></Button>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="delay" />
+                  <Slider fx:id="delaySlider" max="4.5" min="1.5" />
+               </children>
+            </VBox>
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#start" text="start">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop" text="stop">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
