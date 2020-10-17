@@ -44,14 +44,14 @@ public class Controller {
     private boolean dragEndNode = false;
     private int algorithmDelay = 10;
     public static boolean stopAlgorithm = true;
-    ObservableList<String> sortAlgorithms = FXCollections.observableArrayList("Dijktra's Algorithm", "A* Algorithm (Straight)", "A* Algorithm (Diagonal)");
+    ObservableList<String> sortAlgorithms = FXCollections.observableArrayList("Dijktra's Algorithm (Straight)", "Dijktra's Algorithm (Diagonal)", "A* Algorithm (Straight)", "A* Algorithm (Diagonal)");
 
     @FXML
     public void initialize(){
         delaySlider.setValue(3.5);
         gridSizeSlider.setValue(2.5);
         algorithmBox.setItems(sortAlgorithms);
-        algorithmBox.setValue("Dijktra's Algorithm");
+        algorithmBox.setValue("Dijktra's Algorithm (Straight)");
 
         pane.addEventFilter(MouseEvent.MOUSE_DRAGGED, new EventHandler<MouseEvent>() {
             @Override
@@ -181,9 +181,13 @@ public class Controller {
         }else if(algorithmBox.getValue() == "A* Algorithm (Diagonal)") {
             AStar pf = new AStar(grid);
             pf.findRoute();
-        }else{
+        }else if(algorithmBox.getValue() == "Dijktra's Algorithm (Straight)") {
             PathFinder pf = new PathFinder(grid);
             pf.findRoute();
+        }else{
+            PathDiagonal pf = new PathDiagonal(grid);
+            pf.findRoute();
+            grid.draw();
         }
 
     }
@@ -212,8 +216,5 @@ public class Controller {
         stopAlgorithm = true;
     }
 
-    public void disableButtons(boolean cellsize, boolean build, boolean algorithm, boolean clear, boolean random, boolean start, boolean stop, boolean delay){
-
-    }
 
 }

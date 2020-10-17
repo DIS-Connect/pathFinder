@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
@@ -20,14 +21,12 @@ public class Grid {
     private int gridLenght;
     private Node startNode;
     private Node endNode;
-    private Node[] route;
     private Pane pane;
     private int nodeSize;
     private boolean grindOn = false;
     private double random = 1;
     ArrayList<Node> searchList= new ArrayList<>();
     ArrayList<Node> expandList= new ArrayList<>();
-    ArrayList<Node> routeList = new ArrayList<>();
     public static boolean gridOn = false;
     private int delay;
 
@@ -184,7 +183,6 @@ public class Grid {
 
     public void createRoute(Node node) {
         node.setState(NodeState.ROUTE_NODE);
-        //routeList.add(node);
         draw();
 
         Node prev_node =node.getPreviousNode();
@@ -196,9 +194,6 @@ public class Grid {
 
 
     }
-
-
-
 
     public void draw() {
 
@@ -221,12 +216,15 @@ public class Grid {
                 rect.setTranslateX(n.getX() * nodeSize);
                 rect.setTranslateY(n.getY() * nodeSize);
                 pane.getChildren().add(rect);
-                //Label cost = new Label("G: "+n.getGCost() + " \n H: "+n.getHCost()+"\n f:"+n.getFCost());
-
+                //Label cost = new Label("G: "+n.getGCost() +"\n H:" + n.getHCost() + "\n F:" + n.getFCost());
+                //cost.setTranslateX(n.getX() * nodeSize);
+                //cost.setTranslateY(n.getY() * nodeSize);
+                //pane.getChildren().add(cost);
             }
 
-
         }
+
+
         if(gridOn) {
             for (int x = 0; x < xValues; x++) {
                 Line line = new Line(x * nodeSize, 0, x * nodeSize, xValues * nodeSize);
@@ -267,11 +265,14 @@ public class Grid {
         int dx = startNode.getX()-endNode.getX();
         int dy = startNode.getY() -endNode.getY();
 
-        int distance = dx + dy;
-
-        if(distance < 0){
-            distance *= -1;
+        if(dx < 0){
+            dx *= -1;
         }
+
+        if(dy < 0){
+            dy *= -1;
+        }
+        int distance = dx + dy;
 
         return distance;
     }

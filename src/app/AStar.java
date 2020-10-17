@@ -26,7 +26,7 @@ public class AStar {
         Scanner scanner = new Scanner(System.in);
 
         while(!Controller.stopAlgorithm){
-
+            //scanner.nextLine();
             expandArray = grid.getExpandArray();
             for (Node n : expandArray) {
                 //System.out.println("Expand:                     x: "+ n.getX() + ", y:  "+n.getY() +" | gCost: "+ n.getGCost()+", fCost: "+n.getFCost());

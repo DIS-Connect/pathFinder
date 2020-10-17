@@ -96,6 +96,13 @@ public class Node {
         return HCost;
     }
 
+    public void setGCost(int gcost, Node n){
+        if(GCost == 0 || GCost > gcost) {
+            setPreviousNode(n);
+            GCost = gcost;
+        }
+    }
+
 
 
 
