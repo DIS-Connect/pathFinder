@@ -31,7 +31,7 @@
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin></ChoiceBox>
-            <Button mnemonicParsing="false" onAction="#clear" text="clear">
+            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clear" text="clear">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin></Button>
@@ -39,7 +39,7 @@
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" onAction="#changeGrid" text="grid ON/OFF">
+            <Button fx:id="gridButton" mnemonicParsing="false" onAction="#changeGrid" text="grid ON/OFF">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin></Button>

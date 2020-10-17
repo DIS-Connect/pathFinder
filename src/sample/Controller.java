@@ -35,6 +35,12 @@ public class Controller {
     @FXML
     Button stopButton;
 
+    @FXML
+    Button clearButton;
+
+    @FXML
+    Button gridButton;
+
 
     //variables
     private Grid grid;
@@ -85,6 +91,9 @@ public class Controller {
         });
         startButton.setDisable(true);
         delaySlider.setDisable(true);
+        delaySlider.setDisable(true);
+        clearButton.setDisable(true);
+        gridButton.setDisable(true);
     }
 
     private void setDelay() {
@@ -92,10 +101,10 @@ public class Controller {
 
         switch(value){
             case 1:
-                algorithmDelay = 5;
+                algorithmDelay = 10;
                 break;
             case 2:
-                algorithmDelay = 10;
+                algorithmDelay = 20;
                 break;
             case 3:
                 algorithmDelay = 50;
@@ -104,7 +113,7 @@ public class Controller {
                 algorithmDelay = 100;
                 break;
             default:
-                algorithmDelay = 20;
+                algorithmDelay = 50;
                 break;
         }
         grid.setDelay(algorithmDelay);
@@ -163,6 +172,9 @@ public class Controller {
             setDelay();
             startButton.setDisable(false);
             delaySlider.setDisable(false);
+            delaySlider.setDisable(false);
+            clearButton.setDisable(false);
+            gridButton.setDisable(false);
         }
     }
 
